@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="spring.boot.rest.modules.mapper.MaptThumbMapper">
+    <resultMap id="BaseResultMap" type="spring.boot.rest.modules.entity.MaptThumb">
+        <id column="MAPT_THUMB_ID" property="maptThumbId" jdbcType="INTEGER"/>
+        <result column="MAPT_THUMB_PATH" property="maptThumbPath" jdbcType="VARCHAR"/>
+        <result column="MAPT_THUMB_DESC" property="maptThumbDesc" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select * from IC_THUMBNAIL_MAPT
+    </select>
+
+    <select id="queryThumbById" parameterType="string" resultMap="BaseResultMap">
+        SELECT MAPT_THUMB_PATH FROM IC_THUMBNAIL_MAPT WHERE MAPT_THUMB_ID=#{id}
+    </select>
+</mapper>

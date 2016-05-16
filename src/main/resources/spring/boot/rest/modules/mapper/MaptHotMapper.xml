@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="spring.boot.rest.modules.mapper.MaptHotMapper">
+
+    <resultMap id="BaseResultMap" type="spring.boot.rest.modules.entity.MaptHot">
+        <id column="MHOT_ROWID" property="mhotRowId" jdbcType="INTEGER"/>
+        <result column="MAPT_ID" property="maptId" jdbcType="VARCHAR"/>
+        <result column="TOTAL_VISITS" property="totalVisits" jdbcType="VARCHAR"/>
+        <result column="TOTAL_USES" property="totalUses" jdbcType="VARCHAR"/>
+        <result column="STATS_TIME" property="statsTime" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select * from IC_MAPT_HOT
+    </select>
+
+
+    <select id="queryHotById" parameterType="string" resultMap="BaseResultMap">
+        SELECT MAPT_ID FROM IC_MAPT_HOT WHERE MHOT_ROWID=#{id}
+    </select>
+
+</mapper>
